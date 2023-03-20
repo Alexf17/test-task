@@ -5,9 +5,11 @@ import {
   Avatar,
   AvatarContainer,
   BgImage,
+  Circle,
   InfoItem,
   InfoList,
   LogoImage,
+  Text,
   Wrap,
 } from './Card.styled';
 
@@ -51,14 +53,16 @@ export const Card = ({ id, avatar, tweets, followers }) => {
       <LogoImage src={logo} alt="logo" />
       <BgImage src={img} alt="backgroundImage" />
       <AvatarContainer>
-        <Avatar src={avatar} alt="avatar" />
+        <Circle>
+          <Avatar src={avatar} alt="avatar" />
+        </Circle>
       </AvatarContainer>
       <InfoList>
         <InfoItem>
-          <p>{tweets.toLocaleString()} TWEETS</p>
+          <Text>{tweets.toLocaleString()} TWEETS</Text>
         </InfoItem>
         <InfoItem>
-          <p>{userStat.followers.toLocaleString()} FOLLOWERS</p>
+          <Text>{userStat.followers.toLocaleString()} FOLLOWERS</Text>
         </InfoItem>
       </InfoList>
       <button type="button" onClick={followersHandle}>
