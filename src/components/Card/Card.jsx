@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import img from '../../images/img.png';
 import logo from '../../images/Logo.png';
-import { Avatar, AvatarContainer, Wrap } from './Card.styled';
+import {
+  Avatar,
+  AvatarContainer,
+  BgImage,
+  InfoItem,
+  InfoList,
+  LogoImage,
+  Wrap,
+} from './Card.styled';
 
 export const Card = ({ id, avatar, tweets, followers }) => {
   const [userStat, setUserStat] = useState(
@@ -40,24 +48,20 @@ export const Card = ({ id, avatar, tweets, followers }) => {
 
   return (
     <Wrap>
-      <img src={logo} alt="logo" />
-      <img src={img} alt="backgroundImage" />
+      <LogoImage src={logo} alt="logo" />
+      <BgImage src={img} alt="backgroundImage" />
       <AvatarContainer>
         <Avatar src={avatar} alt="avatar" />
       </AvatarContainer>
-      <ul>
-        <li>
+      <InfoList>
+        <InfoItem>
           <p>{tweets.toLocaleString()} TWEETS</p>
-        </li>
-        <li>
+        </InfoItem>
+        <InfoItem>
           <p>{userStat.followers.toLocaleString()} FOLLOWERS</p>
-        </li>
-      </ul>
-      <button
-        type="button"
-        onClick={followersHandle}
-        isFollowing={userStat.isFollowing}
-      >
+        </InfoItem>
+      </InfoList>
+      <button type="button" onClick={followersHandle}>
         {userStat.isFollowing ? 'FOLLOWING' : 'FOLLOW'}
       </button>
     </Wrap>
