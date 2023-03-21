@@ -5,6 +5,7 @@ import {
   Avatar,
   AvatarContainer,
   BgImage,
+  Button,
   Circle,
   InfoItem,
   InfoList,
@@ -65,9 +66,13 @@ export const Card = ({ id, avatar, tweets, followers }) => {
           <Text>{userStat.followers.toLocaleString()} FOLLOWERS</Text>
         </InfoItem>
       </InfoList>
-      <button type="button" onClick={followersHandle}>
+      <Button
+        type="button"
+        onClick={followersHandle}
+        isFollowing={userStat.isFollowing}
+      >
         {userStat.isFollowing ? 'FOLLOWING' : 'FOLLOW'}
-      </button>
+      </Button>
     </Wrap>
   );
 };
