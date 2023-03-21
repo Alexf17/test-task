@@ -47,7 +47,7 @@ export const Card = ({ id, avatar, tweets, followers }) => {
         followers: userStat.followers,
       })
     );
-  }, [userStat]);
+  }, [userStat, id]);
 
   return (
     <Wrap>
